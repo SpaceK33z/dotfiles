@@ -9,7 +9,7 @@ Your dotfiles are how you personalize your system. These are mine. They are base
 Run this:
 
 ```sh
-git clone https://github.com/SpaceK33z/dotfiles.git ~/.dotfiles
+git clone --recursive https://github.com/SpaceK33z/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
@@ -17,7 +17,7 @@ script/bootstrap
 This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
 
-`dot` is a simple script that installs some dependencies and sets sane defaults. It works for OS X or Debian. If the system is not running OS X or Debian, it will simply skip this script. Tweak this script, and occasionally run `dot` from
+`dot` is a simple script that installs some dependencies and sets sane defaults. It works for OS X and Debian. If the system is not running OS X or Debian, it will simply skip this script. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
