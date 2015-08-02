@@ -6,11 +6,15 @@
 # to make sure you're on the latest and greatest.
 export ZSH=$HOME/.dotfiles
 
-# Set OS X defaults
-$ZSH/osx/set-defaults.sh
+# Run script depending on what OS is running.
+if test "$(uname)" = "Darwin"
+then
+  # Set OS X defaults
+  $ZSH/osx/set-defaults.sh
 
-# Upgrade homebrew
-brew update
-
-# Install homebrew packages
-$ZSH/homebrew/install.sh 2>&1
+  # Install homebrew packages
+  $ZSH/osx/homebrew.sh
+elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+then
+  # TODO: Install default packages (such as tree, vim).
+fi

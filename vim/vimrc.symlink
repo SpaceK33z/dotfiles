@@ -1,4 +1,29 @@
 syntax on
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" Set the delay to wait after <esc> to 100msec (down from standard 1000)
+:set timeoutlen=100
+" No idea what this does
+:set shm+=I
+" Syntax highlighting
+:syntax on
+:colorscheme elfwimp
+" Make tabs visible
+:set list listchars=tab:·\
+" Detect filetypes please!
+:filetype plugin on
+:filetype indent plugin on
+" Indenting settings etc for different filetypes
+:autocmd FileType html set tabstop=2
+:autocmd FileType htmldjango set tabstop=2
+:autocmd FileType ruby set tabstop=2
+:autocmd FileType javascript set tabstop=2
+:autocmd FileType c set cindent
+:autocmd FileType cpp set cindent
+:autocmd FileType python set tabstop=4 noet ai
+" Change cursor color for insert/command mode
+if &term =~ "xterm\\|rxvt"
+  let &t_SI = "\<Esc>]12;red\x7"
+  let &t_EI = "\<Esc>]12;yellow\x7"
+  autocmd VimLeave * silent !echo -ne "\033]12;yellow\007"
+endif
+:map <space> zz
