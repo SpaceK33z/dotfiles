@@ -1,0 +1,30 @@
+# Always have a status bar at the bottom
+caption always "%{Wr} screen%{w}@%{W}%H %{k}| %{w}%-w%{G}[%n %t]%{w}%+w %=%{k}| %{W}%l "
+
+# Shush!
+startup_message off
+
+# No idea what this does...
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+
+bindkey "^T" title
+bindkey "^[Od" prev       # ctrl-left
+bindkey "^[[1;5D" prev    # ctrl-left (gnome-terminal)
+bindkey "^[Oc" next       # ctrl-right
+bindkey "^[[1;5C" next    # ctrl-right (gnome-terminal)
+bindkey "^[Ob" screen     # ctrl-down
+bindkey "^[[1;5B" screen  # ctrl-down (gnome-terminal)
+bindkey "^[Oa" detach     # ctrl-up
+bindkey "^[[1;5A" detach  # ctrl-up (gnome-terminal)
+
+# alt-[0-9] selects screen 0-9
+bindkey "^[1" select 0
+bindkey "^[2" select 1
+bindkey "^[3" select 2
+bindkey "^[4" select 3
+bindkey "^[5" select 4
+bindkey "^[6" select 5
+bindkey "^[7" select 6
+bindkey "^[8" select 7
+bindkey "^[9" select 8
+bindkey "^[0" select 9

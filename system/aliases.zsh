@@ -19,3 +19,6 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+
+# Get public IP
+alias myip="curl ip.appspot.com"

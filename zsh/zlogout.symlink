@@ -1,0 +1,6 @@
+# This file is sourced when login shells exit.
+
+# Clear when leaving a physical console, but don't clear after ssh sessions.
+if [[ -n ${TTY} && ${TTY##*/} == tty* || ${TTY##*/} == console* ]] {
+  clear
+}

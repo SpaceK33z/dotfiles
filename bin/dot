@@ -17,4 +17,5 @@ then
 elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
 then
   # TODO: Install default packages (such as tree, vim).
+  echo
 fi

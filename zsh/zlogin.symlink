@@ -1,0 +1,4 @@
+# This file is sourced for login shells.
+
+echo
+echo $HOST $(uptime)

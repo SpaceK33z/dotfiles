@@ -16,6 +16,6 @@ else
 fi
 
 # Install homebrew packages
-brew install coreutils
-
-# TODO: Add more brew packages and add cask.
+brew install coreutils screen wget zsh rsync make git most gcc pwgen htop-osx hub python3 ruby
+brew install gnu-sed gnu-tar findutils gnutls --default-names
+brew install vim --override-system-vi

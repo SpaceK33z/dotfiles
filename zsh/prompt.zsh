@@ -1,61 +1,45 @@
-autoload colors && colors
-# cheers, @ehrenmurdick
-# http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
+declare -A COLOR
+COLOR=(
+   k $'%{\e[0;30m%}'  r $'%{\e[0;31m%}'  g $'%{\e[0;32m%}'  y $'%{\e[0;33m%}'
+   b $'%{\e[0;34m%}'  m $'%{\e[0;35m%}'  c $'%{\e[0;36m%}'  w $'%{\e[0;37m%}'
+  bk $'%{\e[1;30m%}' br $'%{\e[1;31m%}' bg $'%{\e[1;32m%}' by $'%{\e[1;33m%}'
+  bb $'%{\e[1;34m%}' bm $'%{\e[1;35m%}' bc $'%{\e[1;36m%}' bw $'%{\e[1;37m%}'
+   n $'%{\e[0m%}'
+)
 
-if (( $+commands[git] ))
-then
-  git="$commands[git]"
-else
-  git="/usr/bin/git"
-fi
-
-git_branch() {
-  echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+# Set up default colors
+if [[ -z "$COLOR[$COLOR_HOST]" ]] {
+  COLOR_HOST=by
+}
+if [[ -z "$COLOR[$COLOR_USER]" ]] {
+  COLOR_USER=y
 }
 
-git_dirty() {
-  if $(! $git status -s &> /dev/null)
-  then
-    echo ""
-  else
-    if [[ $($git status --porcelain) == "" ]]
-    then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
-    else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
-    fi
-  fi
-}
+# Construct the prompt
+PROMPT=""
+PROMPT+="%(!/$COLOR[br]/$COLOR[bk])["
+PROMPT+="%(!/$COLOR[r]/$COLOR[$COLOR_USER])%n"
+PROMPT+="$COLOR[bk]@"
+PROMPT+="$COLOR[$COLOR_HOST]%m "
+PROMPT+="$COLOR[w]%2~ "
+PROMPT+="%(?/$COLOR[bg]./$COLOR[br]!)"
+PROMPT+="%(!/$COLOR[br]/$COLOR[bk])]"
+PROMPT+="%(!/$COLOR[r]/$COLOR[$COLOR_USER])%#"
+PROMPT+="$COLOR[n] "
 
-git_prompt_info () {
- ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref#refs/heads/}"
-}
+# And the right prompt
+RPROMPT=""
+RPROMPT+="${COLOR[bk]}["
+RPROMPT+="$COLOR[bw]%D{%T}"
+RPROMPT+="$COLOR[bk]]"
+RPROMPT+="$COLOR[n]"
 
-unpushed () {
-  $git cherry -v @{upstream} 2>/dev/null
-}
-
-need_push () {
-  if [[ $(unpushed) == "" ]]
-  then
-    echo " "
-  else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
-  fi
-}
-
-directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
-}
-
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
-set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
-}
-
+# Set the window title to <user>@<host> <cwd>
 precmd() {
-  title "zsh" "%m" "%55<...<%~"
-  set_prompt
+  if [[ ${TERM} == (xterm|rxvt|screen)* ]] print -Pn $'\e]0;%n@%m: %~\a'
+}
+
+# Set the window title to the command the user entered.
+preexec() {
+  if [[ ${TERM} == (xterm|rxvt|screen)* ]] printf "\e]0;%s\a" "${1}"
 }
