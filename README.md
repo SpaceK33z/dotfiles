@@ -21,6 +21,12 @@ Everything is configured and tweaked within `~/.dotfiles`.
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
+## usage
+
+For host-specific aliases or shortcuts, create a `~/.localrc`.
+
+On your host machine, you often want to run an ssh-agent so that your SSH keys can be automatically forwarded when ssh-ing to other hosts. Add `export DOT_START_SSH_AGENT=true` to your `~/.localrc` to enable it for your host machine.
+
 ## topical
 
 Everything's built around topic areas. If you're adding a new area to your
