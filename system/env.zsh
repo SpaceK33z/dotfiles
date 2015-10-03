@@ -1,10 +1,6 @@
 # Set pager
-if [[ -f =less ]] 2> /dev/null {
-  export PAGER=less
-}
-if [[ -f =most ]] 2> /dev/null {
-  export PAGER=most
-}
+export PAGER=less
+export LESS="-iMSx4 -FX"
 
 # Set editor
 unset VISUAL
