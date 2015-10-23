@@ -1,6 +1,6 @@
 # Set pager
 export PAGER=less
-export LESS="-iMSx4 -FX"
+export LESS="-iMSx4 -FXer"
 
 # Set editor
 unset VISUAL
