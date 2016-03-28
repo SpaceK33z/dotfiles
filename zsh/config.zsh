@@ -5,7 +5,6 @@ else
 fi
 
 export CLICOLOR=true
-export GREP_OPTIONS="--color=auto"
 
 eval "$(dircolors)"
 
