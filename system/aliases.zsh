@@ -20,5 +20,7 @@ alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 
+alias grep='grep --color'
+
 # Get public IP
 alias myip="curl ip.appspot.com"
