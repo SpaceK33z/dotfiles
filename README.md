@@ -2,7 +2,8 @@
 
 ## dotfiles
 
-Your dotfiles are how you personalize your system. These are mine. They are based on [holmans dotfiles](https://github.com/holman/dotfiles).
+Your dotfiles are how you personalize your system. These are mine.
+They are based on [holmans dotfiles](https://github.com/holman/dotfiles).
 
 ## install
 
@@ -17,15 +18,20 @@ script/bootstrap
 This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
 
-`dot` is a simple script that installs some dependencies and sets sane defaults. It works for OS X and Debian. If the system is not running OS X or Debian, it will simply skip this script. Tweak this script, and occasionally run `dot` from
-time to time to keep your environment fresh and up-to-date. You can find
+`dot` is a simple script that installs some dependencies and sets sane defaults.
+It works for OS X and Debian. If the system is not running OS X or Debian,
+it will simply skip this script. Tweak this script, and occasionally run `dot`
+from time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
 ## usage
 
 For host-specific aliases or shortcuts, create a `~/.localrc`.
 
-On your host machine, you often want to run an ssh-agent so that your SSH keys can be automatically forwarded when ssh-ing to other hosts. Add `export DOT_START_SSH_AGENT=true` to your `~/.localrc` to enable it for your host machine.
+On your host machine, you often want to run an ssh-agent so that your SSH keys
+can be automatically forwarded when ssh-ing to other hosts. Add
+`export DOT_START_SSH_AGENT=true` to your `~/.localrc` to enable it for your
+host machine.
 
 ## topical
 
