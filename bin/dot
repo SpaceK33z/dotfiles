@@ -14,6 +14,7 @@ then
 
   # Install homebrew packages
   $ZSH/osx/homebrew.sh
+  $ZSH/node/install.sh
 elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
 then
   # TODO: Install default packages (such as tree, vim).
