@@ -30,3 +30,6 @@ bindkey -M viins $'\e[6~' beep # pgdn
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins $'\eOd' vi-backward-blank-word
 bindkey -M viins $'\eOc' vi-forward-blank-word
+
+# Delay after switching to vim normal mode; default is 40
+export KEYTIMEOUT=1

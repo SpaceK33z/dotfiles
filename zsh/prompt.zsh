@@ -28,11 +28,27 @@ PROMPT+="%(!/$COLOR[r]/$COLOR[$COLOR_USER])%#"
 PROMPT+="$COLOR[n] "
 
 # And the right prompt
-RPROMPT=""
-RPROMPT+="${COLOR[bk]}["
-RPROMPT+="$COLOR[bw]%D{%T}"
-RPROMPT+="$COLOR[bk]]"
-RPROMPT+="$COLOR[n]"
+function show-rprompt {
+    RPROMPT=""
+    RPROMPT+="${COLOR[bk]}["
+    RPROMPT+="$VIMODE"
+    RPROMPT+="$COLOR[bw]%D{%T}"
+    RPROMPT+="$COLOR[bk]]"
+    RPROMPT+="$COLOR[n]"
+}
+
+# When in VIM's "normal" mode, show this in the right prompt
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="NORMAL "
+    VIMODE="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
+    show-rprompt
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+show-rprompt
 
 # Set the window title to <user>@<host> <cwd>
 precmd() {
