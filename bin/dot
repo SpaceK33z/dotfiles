@@ -6,6 +6,9 @@
 # to make sure you're on the latest and greatest.
 export ZSH=$HOME/.dotfiles
 
+cd $HOME/.dotfiles
+git pull
+
 # Run script depending on what OS is running.
 if test "$(uname)" = "Darwin"
 then
