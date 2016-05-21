@@ -1,19 +1,44 @@
 " Set the delay to wait after <esc> to 100msec (down from standard 1000)
-:set timeoutlen=100
-" No idea what this does
-:set shm+=I
+set timeoutlen=100
+set number
+set modeline
+set hlsearch
+" Always show status bar at the bottom
+set laststatus=2
+" Keep all vim-related temp files in a single directory
+let $TMPDIR = '/tmp/vim-' . $USER
+silent! call mkdir($TMPDIR, '', 0700)
 " Syntax highlighting
-:syntax on
-:colorscheme elfwimp
-" Make tabs visible
-:set list listchars=tab:·\
+syntax on
+colorscheme elfwimp
 " Detect filetypes please!
-:filetype plugin on
-:filetype indent plugin on
-" Change cursor color for insert/command mode
-if &term =~ "xterm\\|rxvt"
-  let &t_SI = "\<Esc>]12;red\x7"
-  let &t_EI = "\<Esc>]12;yellow\x7"
-  autocmd VimLeave * silent !echo -ne "\033]12;yellow\007"
-endif
-:map <space> zz
+filetype plugin on
+filetype indent on
+" Make backspace work like most other apps
+set backspace=2
+
+" mark unwanted whitespace
+highlight ExtraWhitespace cterm=underline ctermfg=red
+" Show trailing whitespace and spaces before/after a tab
+au BufRead,BufNewFile,BufWinEnter *
+\ if &ft != '' && &ft != 'text' && &ft != 'help' |
+\ FuSp | endif
+
+" -bar is needed to avoid adding '|' as args, see
+" http://vim.1045645.n5.nabble.com/nested-quot-command-quot-commands-some-yield-quot-Trailing-character-quot-error-td4716402.html
+command! -bar FuSp
+\ if exists("noFuSp") |
+\    match |
+\ elseif &expandtab |
+\    match ExtraWhitespace /\s\+$\|\t/ |
+\ else |
+\    match ExtraWhitespace /\s\+$\|^\t*\zs \+/ |
+\ endif
+" Use tabs for indent. Usage: :Ts 8
+command! -bar -nargs=1 Ts
+\ set ts=<args> sw=<args> softtabstop=<args> noet |
+\ FuSp
+" Use spaces for indent. Usage: :Sp 4
+command! -bar -nargs=1 Sp
+\ set ts=<args> sw=<args> softtabstop=<args> et |
+\ FuSp
