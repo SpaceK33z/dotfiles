@@ -1,11 +1,5 @@
-# Sample gitconfig
-#
-
-[user]
-    name = AUTHORNAME
-    email = AUTHOREMAIL
-[credential]
-    helper = GIT_CREDENTIAL_HELPER
+[include]
+    path = ~/.gitconfig.local
 [alias]
     co = checkout
     promote = !$ZSH/bin/git-promote
