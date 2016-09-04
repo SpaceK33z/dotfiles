@@ -19,7 +19,7 @@ This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
 
 `dot` is a simple script that installs some dependencies and sets sane defaults.
-It works for OS X and Debian. If the system is not running OS X or Debian,
+It works for macOS and Debian. If the system is not running macOS or Debian,
 it will simply skip this script. Tweak this script, and occasionally run `dot`
 from time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.

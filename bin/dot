@@ -12,11 +12,11 @@ git pull
 # Run script depending on what OS is running.
 if test "$(uname)" = "Darwin"
 then
-  # Set OS X defaults
-  $ZSH/osx/set-defaults.sh
+  # Set macOS defaults
+  $ZSH/macos/set-defaults.sh
 
   # Install homebrew packages
-  $ZSH/osx/homebrew.sh
+  $ZSH/macos/homebrew.sh
   $ZSH/node/install.sh
 elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
 then
