@@ -1,11 +1,9 @@
 # SpaceK33zʼs dotfiles
 
-## dotfiles
-
 Your dotfiles are how you personalize your system. These are mine.
 They are based on [holmans dotfiles](https://github.com/holman/dotfiles).
 
-## install
+## Install
 
 Run this:
 
@@ -24,7 +22,7 @@ it will simply skip this script. Tweak this script, and occasionally run `dot`
 from time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
-## usage
+## Usage
 
 For host-specific aliases or shortcuts, create a `~/.localrc`.
 
@@ -33,15 +31,24 @@ can be automatically forwarded when ssh-ing to other hosts. Add
 `export DOT_START_SSH_AGENT=true` to your `~/.localrc` to enable it for your
 host machine.
 
-## topical
+To customize the colors, add this to your `~/.localrc`:
+
+```shell
+COLOR_HOST=bm
+COLOR_USER=bg
+```
+
+A list of color variables is available in [zsh/promp.zsh](https://github.com/SpaceK33z/dotfiles/blob/master/zsh/prompt.zsh). 
+
+## Topical
 
 Everything's built around topic areas. If you're adding a new area to your
-forked dotfiles — say, "Java" — you can simply add a `java` directory and put
+forked dotfiles — say, "Python" — you can simply add a `ptyhon` directory and put
 files in there. Anything with an extension of `.zsh` will get automatically
 included into your shell. Anything with an extension of `.symlink` will get
 symlinked without extension into `$HOME` when you run `script/bootstrap`.
 
-## components
+## Components
 
 There's a few special files in the hierarchy.
 
