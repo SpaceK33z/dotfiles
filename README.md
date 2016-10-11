@@ -43,7 +43,7 @@ A list of color variables is available in [zsh/promp.zsh](https://github.com/Spa
 ## Topical
 
 Everything's built around topic areas. If you're adding a new area to your
-forked dotfiles — say, "Python" — you can simply add a `ptyhon` directory and put
+forked dotfiles — say, "Python" — you can simply add a `python` directory and put
 files in there. Anything with an extension of `.zsh` will get automatically
 included into your shell. Anything with an extension of `.symlink` will get
 symlinked without extension into `$HOME` when you run `script/bootstrap`.
