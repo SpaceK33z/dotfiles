@@ -8,6 +8,7 @@
     count = !git shortlog -sn
     # `git pr 4` - creates local branch pr/4 from the github origin remote and checks it out
     pr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
 [color]
     diff = auto
     status = auto
@@ -25,6 +26,8 @@
     prompt = false
 [help]
     autocorrect = 1
+[url "https://github.com/"]
+    insteadOf = gh://
 [push]
     # See `git help config` (search for push.default)
     # for more information on different options of the below setting.
