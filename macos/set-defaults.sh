@@ -66,7 +66,8 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 
 # Save screenshots to downloads
-defaults write com.apple.screencapture location -string "${HOME}/Downloads"
+mkdir -p "$HOME/Downloads/Screenshots"
+defaults write com.apple.screencapture location -string "${HOME}/Downloads/Screenshots"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
