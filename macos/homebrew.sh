@@ -16,7 +16,7 @@ else
 fi
 
 # Install homebrew packages
-brew install coreutils screen wget zsh rsync make git most gcc pwgen htop-osx hub python3 ruby
-brew install ack android-sdk composer lua mercurial nvm rename trash unrar watchman
+brew install coreutils screen wget zsh rsync make git gcc pwgen htop-osx python3 ruby
+brew install ack android-sdk lua nvm rename trash unrar watchman nmap sqlite
 brew install gnu-sed gnu-tar findutils gnutls --with-default-names
 brew install vim --with-override-system-vi
