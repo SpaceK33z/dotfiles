@@ -5,6 +5,7 @@
 .DS_Store
 .DS_Store?
 Desktop.ini
+jsconfig.json
 
 # Thumbnail cache files
 ._*
