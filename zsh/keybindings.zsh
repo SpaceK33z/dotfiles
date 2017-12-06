@@ -1,7 +1,6 @@
 bindkey "^[[H" beginning-of-line # home
 bindkey "^[[F" end-of-line # end
 bindkey $'\e[3~' delete-char
-bindkey _ beginning-of-line
 bindkey '^A' beginning-of-line
 bindkey $'\e[1~' beginning-of-line
 bindkey '^E' end-of-line
@@ -18,7 +17,6 @@ bindkey $'\e[3~' delete-char
 bindkey '^A' beginning-of-line
 bindkey $'\e[7~' beginning-of-line
 bindkey $'\eOH' beginning-of-line
-bindkey '^E' end-of-line
 bindkey $'\e[8~' end-of-line
 bindkey $'\eOF' end-of-line
 bindkey $'\e[5~' beep # pgup
