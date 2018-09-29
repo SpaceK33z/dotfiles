@@ -6,6 +6,7 @@
 .DS_Store?
 Desktop.ini
 jsconfig.json
+.vscode
 
 # Thumbnail cache files
 ._*
