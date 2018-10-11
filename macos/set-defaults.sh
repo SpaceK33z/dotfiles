@@ -21,6 +21,9 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
+# New Finder windows show home directory by default
+defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/"
+
 # Show the ~/Library folder.
 chflags nohidden ~/Library
 
@@ -85,8 +88,17 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Dark menu bar and dock
 defaults write $HOME/Library/Preferences/.GlobalPreferences.plist AppleInterfaceTheme -string "Dark"
 
+# Disable "shake to find mouse" 
+defaults write ~/Library/Preferences/.GlobalPreferences CGDisableCursorLocationMagnification -bool YES
+
 # Change minimize/maximize window effect
-defaults write com.apple.dock mineffect -string "scale"
+defaults write com.apple.Dock mineffect -string "scale"
+
+# Only show scrollbar when scrolling
+defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
+
+# Disable “natural” (Lion-style) scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
@@ -114,6 +126,22 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Disable font smoothing
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 0
+
+# Hide icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Enable the debug menu in Disk Utility
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 # Set up Safari for development.
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
