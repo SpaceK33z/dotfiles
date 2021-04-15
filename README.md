@@ -31,15 +31,6 @@ can be automatically forwarded when ssh-ing to other hosts. Add
 `export DOT_START_SSH_AGENT=true` to your `~/.localrc` to enable it for your
 host machine.
 
-To customize the colors, add this to your `~/.localrc`:
-
-```shell
-COLOR_HOST=bm
-COLOR_USER=bg
-```
-
-A list of color variables is available in [zsh/promp.zsh](https://github.com/SpaceK33z/dotfiles/blob/master/zsh/prompt.zsh). 
-
 ## Topical
 
 Everything's built around topic areas. If you're adding a new area to your

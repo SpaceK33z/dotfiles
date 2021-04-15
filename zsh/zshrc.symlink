@@ -1,6 +1,11 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
+fpath+=$ZSH/lib/pure
+
+autoload -U promptinit; promptinit
+prompt pure
+
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
@@ -11,7 +16,8 @@ fi
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+# TODO: preferably I'd like to use $ZSH/**/*.zsh - but I want to skip lib/ folder and too lazy to figure out how to skip one folder
+config_files=($ZSH/{fasd,git,macos,system,xcode}/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
@@ -36,3 +42,10 @@ do
 done
 
 unset config_files
+
+# enable syntax highlighting
+source $ZSH/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# enable auto suggestions
+source $ZSH/lib/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
