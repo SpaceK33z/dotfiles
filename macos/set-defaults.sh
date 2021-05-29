@@ -37,6 +37,9 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
+# Disable user interface sound effects
+defaults write 'Apple Global Domain' com.apple.sound.uiaudio.enabled -bool false
+
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
@@ -96,9 +99,6 @@ defaults write com.apple.Dock mineffect -string "scale"
 
 # Only show scrollbar when scrolling
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
-
-# Disable “natural” (Lion-style) scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
